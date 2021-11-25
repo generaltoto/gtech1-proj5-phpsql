@@ -1,0 +1,202 @@
+/* HTML MANAGEMENT  */
+html {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 50%,rgb(201, 201, 201) 100%);
+    scroll-behavior: smooth;
+}
+#index{
+    background: linear-gradient(180deg, rgba(201, 201, 201,1) 0%, rgba(10,27,19,1) 45%, rgba(201, 201, 201,1) 100%);
+    scroll-behavior: smooth;
+}
+
+/* STYLE GENERAL */
+h3 {
+    font-size:35px;
+}
+
+/* NAV & NAV BACKGROUND FOR EACH PAGE */
+.index-header {
+    background: url("../img/indexhead.jpg");
+    background-size: cover;
+    background-position:center;
+    min-height: 70vh;
+}
+.project1-header {
+    background: url("../img/d2menu.jpg");
+    background-size:cover;
+    background-position:center;
+    min-height: 70vh;
+}
+
+.project2-header {
+    background: url("../img/hzmenu.jpg");
+    background-size:cover;
+    background-position:center;
+    min-height: 70vh;
+}
+
+.project3-header {
+    background: url("../img/btsmenu.jpg");
+    background-size: cover;
+    background-position:center;
+    min-height: 70vh;
+}
+
+nav {
+    background-color: rgba(32, 65, 54, 0.7);
+}
+
+#nav-btn {
+    padding-right: 50px;
+}
+
+#tab-li li {
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+}
+
+
+/* INDEX */
+
+/* copiable hidden text */
+#hidden {
+    display: none;
+}
+
+.section{
+  padding: 4vh;
+}
+
+/* team section */
+#team{
+    background-color: rgb(201, 201, 201);
+    vertical-align: middle;
+}
+#team img{
+    margin-top: 10px;
+    border: 2px solid white;
+}
+#team .card {
+    border: 2px solid white;
+    background-color: rgba(16, 32, 27,0.6);
+}
+#team .card-action{
+    padding:0;
+}
+
+#index-container {
+    min-height: 40vh;
+}
+
+/* project section */
+#project {
+    background-color: rgb(201, 201, 201);
+    vertical-align: middle;
+}
+#project .row{
+    background-color: rgba(16, 32, 27,0.6);
+}
+#project img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* contact  */
+.contact {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#modal-contact h2{
+    font-size: 40px;
+}
+
+
+/* PROJECT SECTION (GENERAL) */
+
+/* black gradient */
+#col-color {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 25%,
+    rgba(0,0,0,0.65) 37.5%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.65) 62.5%, rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0) 100%);
+}
+
+#col-color2 {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 25%,
+    rgba(0,0,0,0.65) 37.5%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.65) 62.5%, rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0) 100%);
+}
+
+/* caroussel section */
+#carousel-row {
+    background-color: rgba(16, 32, 27,0.6);
+}
+
+.carousel {
+    height: 70vh;
+    background-color: rgba(16, 32, 27,0.2);
+}
+
+.carousel .carousel-item {
+    width: 50%;
+    height: auto;
+}
+
+/* skills */
+.tabs .indicator{
+    background-color: #ffffff;
+}
+.tabs .tab a:focus, .tabs .tabs a:focus.active{
+    background: transparent;
+}
+
+
+/* FOOTER SECTION */
+.social{
+    display: flex;
+    justify-content: center;
+}
+.social li{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+footer h2{
+    font-size:27px;
+}
+
+
+@media only screen and (max-width:700px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    #modal-contact h2 {
+        font-size:20px;
+    }
+
+    header {
+        min-height: 20vh;
+    }
+
+    header h2 {
+        margin-top: 175px;
+    }
+
+    .carousel {
+        height: 20vh;
+    }
+    
+    .carousel .carousel-item {
+        height: 20vh;
+    }
+}
+
+/* EASTER EGG CSS SECTION */
+.easteregg-reverse {
+    filter: invert(1);
+}
