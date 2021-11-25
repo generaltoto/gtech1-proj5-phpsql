@@ -43,7 +43,7 @@
     <footer class="page-footer teal darken-4" id="footer">
       <div class="container center">
       <div class="row">
-        <div class="col s12 l3">
+        <div class="col s12 l2">
           <h2 class="white-text">Arthur</h2>
           <ul class="social">
               <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='ajouve@gaming.tech (clic to copy)'><i class="far fa-envelope" onclick="copyToClipboard('#email-arthur')"></i></a></li>
@@ -61,7 +61,7 @@
             <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='general tøtø#5096 (clic to copy)' onclick="copyToClipboard('#discord-thomas')"><i class="fab fa-discord"></i></a></li>
         </ul>
         </div>
-        <div class="col s12 l3">
+        <div class="col s12 l2">
           <h2 class="white-text">Menu</h2>
           <ul>
               <li><a href="index.html" class="grey-text text-lighten-3">Home</a></li>
@@ -70,7 +70,7 @@
               <li><a href="project3.html" class="grey-text text-lighten-3">Beneath the sins project</a></li>
           </ul>
         </div>
-        <div class="col s12 l3">
+        <div class="col s12 l2">
           <h2 class="white-text">Some Links</h2>
           <ul>
               <li><a href="https://bungie.net" target='_blank' rel="nofollow" class="grey-text text-lighten-3">Destiny 2 official page</a></li>
@@ -78,6 +78,15 @@
               <li><a href="#" class="grey-text text-lighten-3" id="easteregg-color">Beneath the Sins Project</a></li>
               <li><a href="https://gamingcampus.fr" target='_blank' rel="nofollow" class="grey-text text-lighten-3">Gaming Campus</a></li>
           </ul>
+        </div>
+        <div class="col s12 l3">
+          <h2 class="white-text">Legal Section</h2>
+          <div class="container">
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Privacy_policy" target='_blank' rel="nofollow" class="grey-text text-lighten-3">Legal and privacy policy</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Terms_of_service" target='_blank' rel="nofollow" class="grey-text text-lighten-3">Terms of service</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="footer-copyright">
