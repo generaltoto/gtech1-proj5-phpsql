@@ -1,5 +1,6 @@
 // JQUERY SECTION
 $(document).ready(function(){
+  $('.dropdown-trigger').dropdown();
   $('.carousel').carousel();
   $('.sidenav').sidenav();
   $('.parallax').parallax();
