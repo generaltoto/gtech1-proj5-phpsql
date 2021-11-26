@@ -66,8 +66,8 @@
               <div class="card-action">
                 <ul class="social">
                   <li><a href="#" class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['mail_1']; ?> (clic to copy)' onclick="copyToClipboard('#email-thomas')"><i class="far fa-envelope"></i></a></li>
-                  <li><a href="<?php echo $data['github_link_1']; ?>" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['github_1']; ?> (clic)'><i class="fab fa-github"></i></a></li>
-                  <li><a href="<?php echo $data['linkedin_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['linkedin_1']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
+                  <li><a href="https://github.com/generaltoto" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['github_1']; ?> (clic)'><i class="fab fa-github"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/thomas-delorme-94abb8221/" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['linkedin_1']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
                   <li><a href="#" class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['discord_1']; ?> (clic to copy)' onclick="copyToClipboard('#discord-thomas')"><i class="fab fa-discord"></i></a></li>
                 </ul>
               </div>
@@ -89,8 +89,8 @@
               <div class="card-action">
                 <ul class="social">
                   <li><a href="#" class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['mail_2']; ?> (clic to copy)' onclick="copyToClipboard('#email-arthur')"><i class="far fa-envelope"></i></a></li>
-                  <li><a href="<?php echo $data['github_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['github_2']; ?> (clic)'><i class="fab fa-github"></i></a></li>
-                  <li><a href="<?php echo $data['linkedin_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['linkedin_2']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
+                  <li><a href="https://github.com/Falaron" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['github_2']; ?> (clic)'><i class="fab fa-github"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/arthur-jouve-113293211/" target='_blank' class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['linkedin_2']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
                   <li><a href="#" class="tooltipped btn-floating btn-large teal darken-3" data-tooltip='<?php echo $data['discord_2']; ?> (clic to copy)'><i class="fab fa-discord" onclick="copyToClipboard('#discord-arthur')"></i></a></li>
                 </ul>
               </div>

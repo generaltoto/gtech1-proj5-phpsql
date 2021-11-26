@@ -43,35 +43,26 @@
 <footer class="page-footer teal darken-4" id="footer">
   <div class="container center">
   <div class="row">
-    <div class="col s12 l2">
-      <h2 class="white-text">Arthur</h2>
+    <div class="col s12 l3">
+      <h2 class="white-text"><?php echo $data['name_text_2']; ?></h2>
       <ul class="social">
-          <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='ajouve@gaming.tech (clic to copy)'><i class="far fa-envelope" onclick="copyToClipboard('#email-arthur')"></i></a></li>
-          <li><a href="https://github.com/Falaron" target='_blank' rel="nofollow" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='Falaron (clic)'><i class="fab fa-github"></i></a></li>
-          <li><a href="https://www.linkedin.com/in/arthur-jouve-113293211/" target='_blank' rel="nofollow" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='Arthur Jouve (clic)'><i class="fab fa-linkedin"></i></a></li>
-          <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='Arthur~#0042 (clic to copy)'><i class="fab fa-discord" onclick="copyToClipboard('#discord-arthur')"></i></a></li>
+        <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['mail_2']; ?> (clic to copy)' onclick="copyToClipboard('#email-arthur')"><i class="far fa-envelope"></i></a></li>
+        <li><a href="<?php echo $data['github_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['github_2']; ?> (clic)'><i class="fab fa-github"></i></a></li>
+        <li><a href="<?php echo $data['linkedin_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['linkedin_2']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['discord_2']; ?> (clic to copy)'><i class="fab fa-discord" onclick="copyToClipboard('#discord-arthur')"></i></a></li>
       </ul>
     </div>
     <div class="col s12 l3">
-    <h2 class="white-text">Thomas</h2>
+    <h2 class="white-text"><?php echo $data['name_text_1']; ?></h2>
     <ul class="social">
-        <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='tdelorme@gaming.tech (clic to copy)'><i class="far fa-envelope" onclick="copyToClipboard('#email-thomas')"></i></a></li>
-        <li><a href="https://github.com/generaltoto" target='_blank' rel="nofollow" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='generaltoto (clic)'><i class="fab fa-github"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/thomas-delorme-94abb8221/" target='_blank' rel="nofollow" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='Thomas Delorme (clic)'><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='general tøtø#5096 (clic to copy)' onclick="copyToClipboard('#discord-thomas')"><i class="fab fa-discord"></i></a></li>
+      <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['mail_1']; ?> (clic to copy)' onclick="copyToClipboard('#email-thomas')"><i class="far fa-envelope"></i></a></li>
+      <li><a href="<?php echo $data['github_link_1']; ?>" target='_blank' class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['github_1']; ?> (clic)'><i class="fab fa-github"></i></a></li>
+      <li><a href="<?php echo $data['linkedin_link_2']; ?>" target='_blank' class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['linkedin_1']; ?> (clic)'><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="#" class="tooltipped btn-floating btn-small teal darken-3" data-tooltip='<?php echo $data['discord_1']; ?> (clic to copy)' onclick="copyToClipboard('#discord-thomas')"><i class="fab fa-discord"></i></a></li>
     </ul>
     </div>
-    <div class="col s12 l2">
-      <h2 class="white-text">Menu</h2>
-      <ul>
-          <li><a href="index.html" class="grey-text text-lighten-3">Home</a></li>
-          <li><a href="project1.html" class="grey-text text-lighten-3">Destiny 2 project</a></li>
-          <li><a href="project2.html" class="grey-text text-lighten-3">HunterZ project</a></li>
-          <li><a href="project3.html" class="grey-text text-lighten-3">Beneath the sins project</a></li>
-      </ul>
-    </div>
-    <div class="col s12 l2">
-      <h2 class="white-text">Some Links</h2>
+    <div class="col s12 l3">
+      <h2 class="white-text">Some Projects</h2>
       <ul>
           <li><a href="https://bungie.net" target='_blank' rel="nofollow" class="grey-text text-lighten-3">Destiny 2 official page</a></li>
           <li><a href="https://hunterz-assaderie.com" target='_blank' class="grey-text text-lighten-3">HunterZ official page</a></li>
