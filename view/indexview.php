@@ -23,7 +23,6 @@
 
       <!-- HEADER BACKGROUND -->
       <div class="container">
-          <br><br>
           <h1 class="header center white-text">Team Projects</h1>
           <div class="row center">
               <h2 class="header col s12 light white-text">Discover our projects through this website</h2>
