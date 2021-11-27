@@ -18,7 +18,7 @@
 
   <body>
     <?php
-      $sql = "SELECT * FROM index_text";
+      $sql = "SELECT * FROM index_content";
       $pre = $pdo->prepare($sql);
       $pre->execute();
       $data = $pre->fetch(PDO::FETCH_ASSOC);
@@ -54,7 +54,7 @@
         <div class="col s12 m12 l6">
           <div class="card z-depth-3 row">
             <div class="card-image col s12 m12 l12 xl5 center">
-              <img src="assets/img/indexthomas.jpg" class="responsive-img" alt='Thomas Delorme Team Projects Image'>
+              <img src="<?php echo $data['team_img_1']; ?>" class="responsive-img" alt='Character1 Team Projects Image'>
             </div>
             <div class="card-stacked col s12 m12 l12 xl7">
               <div class="card-content">
@@ -77,7 +77,7 @@
         <div class="col s12 m12 l6">
           <div class="card z-depth-3 row">
             <div class="card-image col s12 m12 l12 xl5">
-              <img src="assets/img/indexarthur.jpg" class="responsive-img" alt='Arthur Jouve Team Projects Image'>
+              <img src="<?php echo $data['team_img_2']; ?>" class="responsive-img" alt='Character2 Team Projects Image'>
             </div>
             <div class="card-stacked col s12 m12 l12 xl7">
               <div class="card-content">
@@ -101,16 +101,17 @@
     </div>
     <div class="parallax-container" id="index-container">
       <div class="parallax">
-          <img src="assets/img/indexparallax.jpg" alt="Projects Parallax Image">
+          <img src="<?php echo $data['index_parallax_img']; ?>" alt="Projects Parallax Image">
       </div>
     </div>
+
 
     <!-- PROJECTS -->
     <section class="container section white-text z-depth-4" id="project">
       <h2 class="header center"><?php echo $data['title_4']; ?></h2>
       <div class="row z-depth-3">
         <div class="col s12 m12 l12 xl4 center">
-          <img src="assets/img/indexcode.jpg" alt="Projects Code Image" class="responsive-img">
+          <img src="<?php echo $data['project_img_1']; ?>" alt="Projects Code Image" class="responsive-img">
         </div>
         <div class="col s12 m12 l12 xl8">
           <h3 class="header"><?php echo $data['project_text_1']; ?></h3>
@@ -119,7 +120,7 @@
       </div>
       <div class="row z-depth-3">
         <div class="col s12 m12 l12 xl4 push-xl8 center">
-          <img src="assets/img/indexhz.jpg" alt="Project HunterZ Image" class="responsive-img">
+          <img src="<?php echo $data['project_img_2']; ?>" alt="Project HunterZ Image" class="responsive-img">
         </div>
         <div class="col s12 m12 l12 xl8 pull-xl4">
           <h3 class="header"><?php echo $data['project_text_2']; ?></h3>
@@ -128,7 +129,7 @@
       </div>
       <div class="row z-depth-3">
         <div class="col s12 m12 l12 xl4 center">
-          <img src="assets/img/indexbts.jpg" alt="Projects Beneath The Sins Image" class="responsive-img">
+          <img src="<?php echo $data['project_img_3']; ?>" alt="Projects Beneath The Sins Image" class="responsive-img">
         </div>
         <div class="col s12 m12 l12 xl8">
           <h3 class="header"><?php echo $data['project_text_3']; ?></h3>
@@ -136,6 +137,64 @@
         </div>
       </div>
     </section>
+
+    <!-- PROJECTS MODAL -->
+    <div id="modal-projects" class="modal">
+      <div class="modal-content">
+          <h2 class="header center">~ Our Projects ~</h2>
+          <div class="col s12 m7">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="<?php echo $data['project_img_1']; ?>">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h3 class="header"><?php echo $data['project_text_1']; ?></h3>
+                  <p><?php echo $data['project_paragraph_1']; ?></p>
+                </div>
+                <div class="card-action">
+                  <a href="#">See Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m7">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="<?php echo $data['project_img_2']; ?>">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h3 class="header"><?php echo $data['project_text_2']; ?></h3>
+                  <p><?php echo $data['project_paragraph_2']; ?></p>
+                </div>
+                <div class="card-action">
+                  <a href="#">See Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m7">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="<?php echo $data['project_img_3']; ?>">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <h3 class="header"><?php echo $data['project_text_3']; ?></h3>
+                  <p><?php echo $data['project_paragraph_3']; ?></p>
+                </div>
+                <div class="card-action">
+                  <a href="#">See Project</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
 
     <!-- CONTACT & FOOTER -->
     <?php require('assets/parts/footer.php'); ?>
