@@ -5775,6 +5775,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal h1, .modal h2, .modal h3, .modal h4 {
   margin-top: 0;
+  margin-bottom: 50px;
 }
 
 .modal .modal-content {

@@ -34,5 +34,3 @@
   <li><a class="modal-trigger" data-target="modal-login" href="connexion_login.php">Login</a></li>
   <li><a class="modal-trigger" data-target="modal-register" href="connexion_register.php">Register</a></li>
 </ul>
-
-
