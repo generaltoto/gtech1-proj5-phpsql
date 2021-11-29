@@ -15,6 +15,17 @@ function submitForm() {
   document.contact-form.reset();
 }
 
+function modalCloseRegister() {
+  $('#modal-register').modal('close');
+  $('#modal-login').modal('open');
+  
+}
+
+function modalCloseLogin() {
+  $('#modal-login').modal('close');
+  $('#modal-register').modal('open');
+}
+
 //copy system for email and Discord tags
 function copyToClipboard(element) {
   var $temp = $("<input>");

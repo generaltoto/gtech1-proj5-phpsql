@@ -1,3 +1,6 @@
+<?php require ('connexion_login.php'); ?>
+<?php require ('connexion_register.php'); ?>
+
 <!-- NAVBAR -->
 <nav class="nav-wrapper z-depth-3">
   <div class="container">
@@ -14,8 +17,8 @@
 
 <!-- Dropdown Structure -->
 <ul id='dropdown2' class='dropdown-content'>
-  <li><a href="#!">Login</a></li>
-  <li><a href="#!">Register</a></li>
+  <li><a class="modal-trigger" data-target="modal-login" href="connexion_login.php">Login</a></li>
+  <li><a class="modal-trigger" data-target="modal-register" href="connexion_register.php">Register</a></li>
 </ul>
 
 <!-- Mobile NAVBAR -->
@@ -28,6 +31,8 @@
 
 <!-- Dropdown Structure -->
 <ul id='dropdown1' class='dropdown-content'>
-  <li><a href="#!">Login</a></li>
-  <li><a href="#!">Register</a></li>
+  <li><a class="modal-trigger" data-target="modal-login" href="connexion_login.php">Login</a></li>
+  <li><a class="modal-trigger" data-target="modal-register" href="connexion_register.php">Register</a></li>
 </ul>
+
+
