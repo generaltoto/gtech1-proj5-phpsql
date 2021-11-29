@@ -23,23 +23,15 @@ if(empty(trim($_POST["email"]))){ // empty() function checks if the post is empt
   header('Location:../index.php?emailErr='.$emailErr); // display error thanks to span tag in form 
 
 } else{
-  $sql = "SELECT id FROM user WHERE user_email = :email"; // Prepare a select statement
-  if($stmt = $pdo->prepare($sql)){
-    $stmt->bindParam(":email", $paramEmail, PDO::PARAM_STR); // Bind variables to the prepared statement as parameters
-    $paramEmail = trim($_POST["email"]); // Set parameters
+  $sameEmail = $_POST['email'];
+  $compSql = "SELECT * FROM user WHERE user_email='".$_SESSION['user'][':email']."'";
 
-    if($stmt->execute()){ // Attempt to execute the prepared statement
-      if($stmt->rowCount() == 1){
-        $emailErr = "Email already in use."; // counts the number of existing user with this email
-        header('Location:../index.php?emailErr='.$emailErr);
-      } else{
-        $email = trim($_POST["email"]); // removing empty spaces to have a correct username
-      }
-    } else{
-      echo "Oops! Something went wrong. Please try again later."; // = idk what happenened so you have to try again
-    }
+  if(!empty($compSql)){
+    $emailErr = "Email already in use."; // counts the number of existing user with this email
+    header('Location:../index.php?emailErr='.$emailErr);
 
-    unset($stmt); // Close statement
+  } else{
+    $email = trim($_POST["email"]); // removing empty spaces to have a correct username
   }
 }
 
@@ -81,11 +73,18 @@ if (empty($firstNameErr) && empty($lastNameErr) && empty($emailErr) && empty($pa
     ':firstName' => $_POST['firstName'],
     ':lastName' => $_POST['lastName'],
     ':email'   => $_POST['email'],
-    ':password'=> $_POST['password']
+    ':password'=> SHA1($_POST['password'])
   );
 
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
+  $user = current($pre->fetchAll(PDO::FETCH_ASSOC));
+  
+  $_SESSION['user'] = $dataBinded;
+  $_SESSION['login'] = true;
+
+  $id = "SELECT * FROM user WHERE user_email='".$_SESSION['user'][':email']."'"; // getting the connected user 
+  $_SESSION['role'] = $id['user_role'];
   header('Location:../index.php');
 }
 ?>
