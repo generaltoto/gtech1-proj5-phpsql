@@ -20,23 +20,10 @@ h3 {
     background-position:center;
     min-height: 70vh;
 }
-.project1-header {
+
+.project-header {
     background: url("../img/d2menu.jpg");
     background-size:cover;
-    background-position:center;
-    min-height: 70vh;
-}
-
-.project2-header {
-    background: url("../img/hzmenu.jpg");
-    background-size:cover;
-    background-position:center;
-    min-height: 70vh;
-}
-
-.project3-header {
-    background: url("../img/btsmenu.jpg");
-    background-size: cover;
     background-position:center;
     min-height: 70vh;
 }

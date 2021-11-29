@@ -3,5 +3,5 @@
 
   
 
-  require ('view/indexview.php');
+  require ('view/projectsview.php');
 ?>
