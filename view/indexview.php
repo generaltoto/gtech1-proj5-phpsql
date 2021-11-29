@@ -26,7 +26,7 @@
 
     <header class="index-header">
       <!-- NAVBAR -->
-      <?php require ('assets/parts/nav.php'); ?>
+      <?php require ('assets/parts/nav.php');?>
 
       <!-- HEADER BACKGROUND -->
       <div class="container">
@@ -139,62 +139,7 @@
     </section>
 
     <!-- PROJECTS MODAL -->
-    <div id="modal-projects" class="modal">
-      <div class="modal-content">
-          <h2 class="header center">~ Our Projects ~</h2>
-          <div class="col s12 m7">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="<?php echo $data['project_img_1']; ?>">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h3 class="header"><?php echo $data['project_text_1']; ?></h3>
-                  <p><?php echo $data['project_paragraph_1']; ?></p>
-                </div>
-                <div class="card-action">
-                  <a href="#">See Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m7">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="<?php echo $data['project_img_2']; ?>">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h3 class="header"><?php echo $data['project_text_2']; ?></h3>
-                  <p><?php echo $data['project_paragraph_2']; ?></p>
-                </div>
-                <div class="card-action">
-                  <a href="#">See Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m7">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="<?php echo $data['project_img_3']; ?>">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <h3 class="header"><?php echo $data['project_text_3']; ?></h3>
-                  <p><?php echo $data['project_paragraph_3']; ?></p>
-                </div>
-                <div class="card-action">
-                  <a href="#">See Project</a>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-      </div>
-    </div>
+    <?php require ('assets/parts/projects-modal.php'); ?>
 
     <!-- CONTACT & FOOTER -->
     <?php require('assets/parts/footer.php'); ?>
