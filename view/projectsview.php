@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="index">
+<html lang="en" dir="ltr">
   <head>
     <title>Team Projects : Quick Presentation</title>
     <meta name="description" content="Presentation of our team projects through 3 different pages.">
@@ -26,7 +26,7 @@
       $data = $pre->fetch(PDO::FETCH_ASSOC);
     ?>
 
-    <header class="project-header">
+    <header class="project-header" style="background-image: url('<?php echo $data['img_header']; ?>');">
       <!-- NAVBAR -->
       <?php require ('assets/parts/nav.php');?>
 
@@ -41,15 +41,15 @@
 
     <!-- FIRST PRESENTATION  -->
     <section class="container section z-depth-3">
-      <div class="row">
-          <div class="col s12 m12 l12 xl6">
-              <h2 class="grey-text text-darken-4"><?php echo $data['title_3']; ?></h2>
-              <p><?php echo $data['paragraph_1']; ?></p>
-          </div>
-          <div class="col s12 m12 l12 xl4 push-xl1">
-              <img src="<?php echo $data['img_description_1']; ?>" class="responsive-img" alt="Destiny 2 Presentation Image 1">
-          </div>
-      </div>
+        <div class="row">
+            <div class="col s12 m12 l12 xl6">
+                <h2 class="grey-text text-darken-4"><?php echo $data['title_3']; ?></h2>
+                <p><?php echo $data['paragraph_1']; ?></p>
+            </div>
+            <div class="col s12 m12 l12 xl4 push-xl1">
+                <img src="<?php echo $data['img_description_1']; ?>" class="responsive-img" alt="Destiny 2 Presentation Image 1">
+            </div>
+        </div>
     </section>
 
     <!-- PARALLAX & CARACTERISTICS -->
@@ -74,7 +74,7 @@
 
 
   <!-- SECOND PRESENTATION -->
-  <section class="container section z-depth-3">
+  <section class="container section z-depth-3 white">
       <div class="row">
           <div class="col s12 m12 l12 xl6 push-xl5">
               <h2 class="grey-text text-darken-4"><?php echo $data['title_4']; ?></h2>

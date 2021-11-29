@@ -4,7 +4,7 @@
 <!-- NAVBAR -->
 <nav class="nav-wrapper z-depth-3">
   <div class="container">
-      <a href="#" class="brand-logo">Portfolio</a>
+      <a href="index.php" class="brand-logo">Portfolio</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="index.php">Home</a></li>
