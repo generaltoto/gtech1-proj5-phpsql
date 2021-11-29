@@ -54,22 +54,31 @@
 
     <!-- PARALLAX & CARACTERISTICS -->
     <div class="parallax-container valign-wrapper">
-      <div class="section valign-wrapper" id="section-parallax">
-          <div class="row white-text center" id="col-color">
-            <?php for ($i=1; $i < 4; $i++){?>
-              <div class="col s12 m4 l4">
-                <div class="icon-block">
-                    <h2 class="deep-orange-text"><i class="material-icons"><?php echo $data['icon_'.$i]; ?></i></h2>
-                    <h3><?php echo $data['min_title_'.$i]; ?></h3>
-                    <p class="light"><?php echo $data['min_paragraph_'.$i]; ?></p>
-                </div>
-              </div>
-           <?php } ?>
-          </div>
-      </div>
-      <div class="parallax">
-          <img src="<?php echo $data['img_parallax_1']; ?>" alt="Destiny 2 Parallax Image 1">
-      </div>
+        <div class="section valign-wrapper center" id="section-parallax">
+            <div class="row white-text center" id="col-color">
+                <?php
+                    $sql = "SELECT show_details FROM project WHERE project_id = $pageid";
+                    $pre = $pdo->prepare($sql);
+                    $pre->execute();
+                    $data_details = $pre->fetch(PDO::FETCH_ASSOC);
+
+                foreach($data_details as $dataDetails){
+                    foreach(json_decode($dataDetails, true) as $key => $value){ ?>
+                        <div class="col s12 m4 l4">
+                            <div class="icon-block">
+                                <h2 class="deep-orange-text"><i class="material-icons"><?php echo $value['icon']; ?></i></h2>
+                                <h3><?php echo $key; ?></h3>
+                                <p class="light"><?php echo $value['text']; ?></p>
+                            </div>
+                        </div>
+                <?php }
+                }
+                ?>
+            </div>
+        </div>
+        <div class="parallax">
+            <img src="<?php echo $data['img_parallax_1']; ?>" alt="Destiny 2 Parallax Image 1">
+        </div>
   </div>
 
 
