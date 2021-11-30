@@ -42,14 +42,14 @@
 <?php } elseif ($_SESSION['login'] == true && $_SESSION['role'] < 2) { // logged in but not admin --> Log Out ?>
   <ul id='dropdown_in' class='dropdown-content'>
     <li><a href="config/logout.php">Log Out</a></li>
-    <li><a href="../account.php">My Account</a></li>
+    <li><a href="account.php">My Account</a></li>
   </ul>
 
 <?php } elseif ($_SESSION['login'] == true && $_SESSION['role'] == 2) { // logged in and admin --> Log Out & Admin ?>
   <ul id='dropdown_admin' class='dropdown-content'>
     <li><a href="config/logout.php">Log Out</a></li>
-    <li><a href="../account.php">My Account</a></li>
-    <li><a href="../admin.php">Admin</a></li>
+    <li><a href="account.php">My Account</a></li>
+    <li><a href="admin.php">Admin</a></li>
   </ul>
 <?php } ?>
 
