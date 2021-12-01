@@ -1,14 +1,14 @@
 <?php 
-require('config.php');
+  require('config.php');
 
-$sql = "DELETE FROM user WHERE user_id = ':delid'";
+  $sql = "DELETE FROM user WHERE user_id = :delUser";
 
-$dataBinded=array(
-  ':delid' => $_POST['delid']
-);
+  $dataBinded=array(
+    ':delUser' => $_POST['delete']
+  );
 
-$pre = $pdo->prepare($sql);
-$pre->execute($dataBinded);
+  $pre = $pdo->prepare($sql);
+  $pre->execute($dataBinded);
 
-
+  header('Location:../admin.php');
 ?>

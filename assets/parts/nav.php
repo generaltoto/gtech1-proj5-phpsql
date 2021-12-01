@@ -1,5 +1,12 @@
 <?php require ('connexion_login.php');
   require ('connexion_register.php');
+
+  // to print bonjour depending on if you registered or logged in
+  if (isset($_SESSION['user'][':firstName'])){
+    $bonjour = $_SESSION['user'][':firstName'];
+  } elseif (isset($_SESSION['user']['user_first_name'])){
+    $bonjour = $_SESSION['user']['user_first_name'];
+  }
   ?>
 
 <!-- NAVBAR ON PC -->
@@ -21,7 +28,7 @@
           <li><a class='dropdown-trigger btn-floating waves-effect waves-light grey darken-4' href='#' data-target='dropdown_admin'><i class="material-icons">account_circle</i></a></li>
         <?php } ?>
 
-        <li><span> <?php echo ($_SESSION['login'] == true) ? "Bonjour ".$_SESSION['user']['user_first_name'] : 'You are logged out'; ?> </span></li>  
+        <li><span> <?php echo ($_SESSION['login'] == true) ? "Bonjour ".$bonjour : 'You are logged out'; ?> </span></li>  
       </ul>
   </div>
 </nav>

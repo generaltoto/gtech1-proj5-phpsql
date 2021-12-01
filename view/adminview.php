@@ -32,10 +32,10 @@
               <a href="#theUsers" class="indigo-text text-darken-4">USERS</a>
           </li>
           <li class="tab col s12">
-              <a href="#theIndex" class="indigo-text text-darken-4">INDEX MANAGELENT</a>
+              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGELENT</a>
           </li>
           <li class="tab col s12">
-              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGEMENT</a>
+              <a href="#theIndex" class="indigo-text text-darken-4">INDEX MANAGEMENT</a>
           </li>
       </ul>
 
@@ -45,8 +45,9 @@
         $pre->execute();
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container">
-        <table class="center" id="theUsers">
+      <div class="container" id="theUsers">
+        <h2 class="header center">USERS</h2>
+        <table class="center" >
           <thead>
             <tr>
               <th>ID</th>
@@ -61,14 +62,14 @@
             <?php foreach($data as $userNames){ ?>
               <tr>
                 <th><?php echo $userNames['user_id']; ?></th>
-                <th><?php echo $userNames['user_role']; ?></th>
+                <th><?php echo ($userNames['user_role'] == 2) ? 'ADMIN' : ''; ?></th>
                 <th><?php echo $userNames['user_first_name']; ?></th>
                 <th><?php echo $userNames['user_last_name']; ?></th>
                 <th><?php echo $userNames['user_email']; ?></th>
                 <th>
-                  <form method="post" action="config/delet_user.php" class="col s12 m12 l1 collection red-text">
-                    <input type="hidden" name='delid' value="<?php echo $userNames['user_id'] ?>">
-                    <button type="submit" class="collection-title btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+                  <form method="post" action="config/delete_user.php" class="col s12 m12 l1 red-text">
+                    <input type="hidden" name='delete' value="<?php echo $userNames['user_id'] ?>">
+                    <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                   </form>
                 </th>
               </tr>
@@ -84,23 +85,30 @@
         $pre->execute();
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container row center z-depth-2" id="theIndex">
+      <div class="row center z-depth-2" id="theProjects">
         <h2 class="header">PROJECTS</h2>
-        <ul class="collapsible row">
+        <ul class="collapsible">
           <?php foreach($data as $projectInfos){ ?>
-            <li class="col s12 m12 l4">
-              <div class="collapsible-header"><?php echo $projectInfos['project_id'].". ".$projectInfos['title_1'] ?></div>
+            <li>
+              <div class="collapsible-header"><p class="header"><?php echo "Project n°".$projectInfos['project_id']." / ".$projectInfos['title_1'] ?></p></div>
               <div class="collapsible-body">
                 <h3><?php echo $projectInfos['title_2']; ?></h3>
                 <p><?php echo $projectInfos['paragraph_1']; ?></p>
-                <form action="delete_project.php">
+                <form class="right" action="delete_project.php">
                   <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
-                  <button type="submit" class="collection-title btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+                  <button type="submit" name="deleteProject" class="collection-title btn-floating waves-effect waves-light grey lighten-1"><i class="fas fa-edit"></i></button>
+                  <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
               </div>
             </li>
           <?php } ?>
         </ul>
+        <form class="right" action="edit_project.php">
+          <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
+          <button type="submit" name="deleteProject" class="collection-title btn-floating waves-effect waves-light grey lighten-1"><i class="fas fa-edit"></i></button>
+          <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+        </form>
+        <button class="btn-large center green">ADD A PROJECT</i></button>
       </div>
 
       <?php
@@ -110,7 +118,7 @@
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
       ?>
       <div class="container row center z-depth-2" id="theIndex">
-        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci fuga laudantium dignissimos. Adipisci, iste? Praesentium quam similique magni aliquam nemo totam eius accusamus obcaecati facilis quas, saepe reprehenderit nam.</p>
       </div>
     </div>
   </section>
