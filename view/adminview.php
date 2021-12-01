@@ -55,6 +55,7 @@
               <th>FIRST NAME</th>
               <th>LAST NAME</th>
               <th>EMAIL</th>
+              <th>EDIT</th>
               <th>SUPPR</th>
             </tr>
           </thead>
@@ -66,6 +67,12 @@
                 <th><?php echo $userNames['user_first_name']; ?></th>
                 <th><?php echo $userNames['user_last_name']; ?></th>
                 <th><?php echo $userNames['user_email']; ?></th>
+                <th>
+                  <form method="post" action="#" class="col s12 m12 l1 red-text">
+                    <input type="hidden" name='edit' value="<?php echo $userNames['user_id'] ?>">
+                    <button type="submit" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></button>
+                  </form>
+                </th>
                 <th>
                   <form method="post" action="config/delete_user.php" class="col s12 m12 l1 red-text">
                     <input type="hidden" name='delete' value="<?php echo $userNames['user_id'] ?>">
