@@ -10,5 +10,5 @@ $dataBinded=array(
 $pre = $pdo->prepare($sql);
 $pre->execute($dataBinded);
 
-
+header('../index.php');
 ?>

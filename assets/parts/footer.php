@@ -6,36 +6,36 @@
   <div class="modal-content">
     <section class="section container contact">
       <h2 class="header center">~ Contact Us ~</h2>
-      <form>
+      <form action="config/email_send.php" method="POST">
         <div class="input-field row">
           <div class="col s12 m12 l6">
             <i class="fas fa-user"></i>
-            <label for="fname">First Name</label>
-            <input type="text" id="fname">
+            <label for="name">First Name</label>
+            <input type="text" id="name" name="name" placeholder="Daniell Dupont" tabindex="1" required>
           </div>
           <div class="col s12 m12 l6">
-            <i class="far fa-user"></i>
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname">
+            <i class="far fa-envelope"></i>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="daniell@monmail.com" tabindex="2" required>
           </div>
         </div>
         <div class="input-field row">
           <div class="col s12">
-            <i class="far fa-envelope"></i>
-            <label for="email">Your email</label>
-            <input type="email" id="email">
+            <i class="fas fa-reply"></i>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="My subject" tabindex="3" required>
           </div>
           <div class="col s12">
             <i class="fas fa-reply"></i>
             <label for="text">Your message</label>
-            <textarea id="text" class="materialize-textarea" cols='30' rows='10'></textarea>
+            <textarea type="text" id="text" name="message" class="materialize-textarea" cols='30' rows='10' placeholder="Your Message..." tabindex="4" required></textarea>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button href="#!" class="modal-close waves-effect waves-green btn-flat" type="submit">Submit</button>
         </div>
       </form>
     </section>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
   </div>
 </div>
 
