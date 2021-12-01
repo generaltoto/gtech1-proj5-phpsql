@@ -7,7 +7,7 @@ $(document).ready(function(){
   $('.tabs').tabs();
   $('.tooltipped').tooltip();
   $('.modal').modal();
-  $('.collapsible.expandable').collapsible({accordion : false});
+  $('.collapsible.expandable').collapsible();
   });
 
 //Submit part form contact

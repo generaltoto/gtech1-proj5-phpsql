@@ -103,8 +103,8 @@
             <li>
               <div class="collapsible-header"><h3 class="header"><?php echo "Project n°".$projectInfos['project_id']." / ".$projectInfos['title_1'] ?></h3></div>
               <div class="collapsible-body">
-                <form class="right" action="delete_project.php">
-                  <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
+                <form class="right" method="post" action="config/delete_project.php">
+                  <input type="hidden" name="deleteProject" value="<?php echo $projectInfos['project_id']; ?>">
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <h4><?php echo $projectInfos['title_2']; ?></h4>
@@ -116,8 +116,9 @@
                     </div>
                     <div class="collapsible-body white">
                       <div class="section center">
-                        <form class="col s12" action="config/edit_project.php" method="POST">
+                        <form class="col s12" action="config/edit_project?currentId=projectInfos['project_id'].php" method="post">
                           <div class="row">
+                            <input type="hidden" name="update" value="<?php echo $projectInfos['project_id']; ?>">
                             <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
                               <div class="input-field col s12">
                                 <label for="name"><?php echo $projectKey ?></label>
@@ -133,7 +134,7 @@
                 </ul>
               </div>
             </li>
-          <?php break; } ?>
+          <?php } ?>
         </ul>
         <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
       </div>
@@ -150,21 +151,12 @@
           <form class="col s12" action="config/edit_index.php" method="POST">
             <div class="row">
               <?php foreach($data as $indexKey => $indexInfos){ ?>
-<<<<<<< HEAD
                 <div class="row">
                   <div class="input-field col s12">
                     <label for="name"><?php echo $indexKey ?></label>
                     <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexInfos ?>"><?php echo $indexInfos; ?></textarea>
                   </div>
                 </div>
-=======
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <label for="name"><?php echo $indexKey ?></label>
-                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey ?>"><?php echo $indexInfos; ?></textarea>
-                      </div>
-                    </div>
->>>>>>> 927d2b3ffd926a3ab562911f18143d18c0d6274c
               <?php } ?>
             </div>
             <button type="submit" class="btn-large right green">SAVE</button>

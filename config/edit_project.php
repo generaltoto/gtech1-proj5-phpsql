@@ -1,20 +1,24 @@
 <?php
   require('config.php');
-  $sql = "SELECT * FROM project"; 
-  $pre = $pdo->prepare($sql); 
-  $pre->execute();
-  $data = $pre->fetch(PDO::FETCH_ASSOC); 
-
-  print_r($_POST);
 
   foreach($_POST as $key => $value){
-      $sql = "UPDATE index_content SET $key = :value";
-      $dataBinded = array(
-          ':value'=> $value
-      );
-      $pre = $pdo->prepare($sql);
-      $pre->execute($dataBinded);
+    
+    $sql = "UPDATE project SET $key = :value WHERE project_id = :updateProject";
+    $dataBinded = array(
+        ':value'=> $value,
+        ':updateProject' => $_POST['update']
+    );
+    $pre = $pdo->prepare($sql);
+    $pre->execute($dataBinded);
   };
   
   header('Location:../admin.php');
+
+// SELECT * INTO TemporaryTable FROM project
+
+// ALTER TABLE TemporaryTable DROP COLUMN Columnwhichyouwanttoremove
+
+// SELECT * FROM TemporaryTable 
+
+// DROP TABLE TemporaryTable 
 ?>
