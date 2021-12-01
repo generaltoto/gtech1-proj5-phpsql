@@ -125,10 +125,25 @@
         $sql = "SELECT * FROM index_content"; 
         $pre = $pdo->prepare($sql); 
         $pre->execute();
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
+        $data = $pre->fetch(PDO::FETCH_ASSOC); 
       ?>
       <div class="container row center z-depth-2" id="theIndex">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci fuga laudantium dignissimos. Adipisci, iste? Praesentium quam similique magni aliquam nemo totam eius accusamus obcaecati facilis quas, saepe reprehenderit nam.</p>
+        <h2>Edit Index</h2>
+        <ul class="collapsible">
+          <form class="col s12" action="config/edit_index.php" method="POST">
+            <div class="row">
+              <?php foreach($data as $indexKey => $indexInfos){ ?>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="name"><?php echo $indexKey ?></label>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexInfos ?>"><?php echo $indexInfos; ?></textarea>
+                      </div>
+                    </div>
+              <?php } ?>
+            </div>
+            <button type="submit" class="btn-large right green">SAVE</button>
+          </form>
+        </ul>
       </div>
     </div>
   </section>
