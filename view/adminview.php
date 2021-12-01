@@ -16,12 +16,6 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="grey lighten-2">
-  <?php
-    $sql = "SELECT * FROM user";
-    $pre = $pdo->prepare($sql);
-    $pre->execute();
-    $displayUser = $pre->fetch(PDO::FETCH_ASSOC);
-  ?>
 
   <!-- HEADER & NAVBAR -->
   <header class="admin-header">
@@ -51,55 +45,72 @@
         $pre->execute();
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container row center z-depth-2" id="theUsers">
-        <div class="col s3 collection grey lighten-1" id="first_names_title">
-          <p class="collection-title">FIRST NAME</p>
-        </div>
-        <div class="col s3 collection grey lighten-1" id="first_names" id="last_names_title">
-           <p class="collection-title">LAST NAME</p>
-        </div>
-        <div class="col s5 collection grey lighten-1" id="emails" id="email_title">
-          <p class="collection-title">EMAIL</p>
-        </div>
-        <div class="col s1 collection grey lighten-1" id="deleteBtn">
-          <p class="collection-title">SUPPR</i></p>
-        </div>
-        <?php foreach($data as $userNames){ ?>
-          <div class="col s3 collection" id="first_names">
-            <p class="collection-item"><?php echo $userNames['user_first_name'] ?></p>
-          </div>
-          <div class="col s3 collection" id="first_names">
-            <p class="collection-item"><?php echo $userNames['user_last_name'] ?></p>
-          </div>
-          <div class="col s5 collection" id="emails">
-            <p class="collection-item"><?php echo $userNames['user_email'] ?></p>
-          </div>
-          <div class="col s1 collection red-text" id="deleteBtn">
-            <p class="collection-title"><i class="fas fa-trash-alt"></i></p>
-          </div>
-        <?php } ?>
+      <div class="container">
+        <table class="center" id="theUsers">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ROLE</th>
+              <th>FIRST NAME</th>
+              <th>LAST NAME</th>
+              <th>EMAIL</th>
+              <th>SUPPR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($data as $userNames){ ?>
+              <tr>
+                <th><?php echo $userNames['user_id']; ?></th>
+                <th><?php echo $userNames['user_role']; ?></th>
+                <th><?php echo $userNames['user_first_name']; ?></th>
+                <th><?php echo $userNames['user_last_name']; ?></th>
+                <th><?php echo $userNames['user_email']; ?></th>
+                <th>
+                  <form method="post" action="config/delet_user.php" class="col s12 m12 l1 collection red-text">
+                    <input type="hidden" name='delid' value="<?php echo $userNames['user_id'] ?>">
+                    <button type="submit" class="collection-title btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+                  </form>
+                </th>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
       </div>
-      <div class="col s12 container" id="theIndex">
-          <p class="flow-text">
-              SEO
-          </p>
-          <p>
-              The SEO might not seem that important but at soon as you want your website to be looked at by some people, you'll see that it is as important as a good
-              looking website. Everything as to be optimized if you want people to find your site before the 5th page of Google. 
-          </p>
-          <p>
-              It was new for both of us and really abstract at first, you can't really visualize how much the presence of a word at certain places in your code is that 
-              important. Some website are really helpfull to make your code clean and make your pictures as light as possible. 
-          </p>
+      
+      
+      <?php
+        $sql = "SELECT * FROM project"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
+      ?>
+      <div class="container row center z-depth-2" id="theIndex">
+        <h2 class="header">PROJECTS</h2>
+        <ul class="collapsible row">
+          <?php foreach($data as $projectInfos){ ?>
+            <li class="col s12 m12 l4">
+              <div class="collapsible-header"><?php echo $projectInfos['project_id'].". ".$projectInfos['title_1'] ?></div>
+              <div class="collapsible-body">
+                <h3><?php echo $projectInfos['title_2']; ?></h3>
+                <p><?php echo $projectInfos['paragraph_1']; ?></p>
+                <form action="delete_project.php">
+                  <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
+                  <button type="submit" class="collection-title btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+                </form>
+              </div>
+            </li>
+          <?php } ?>
+        </ul>
       </div>
-      <div class="col s12 container" id="theProjects">
-          <p class="flow-text">
-              Team Work
-          </p>
-          <p>
-              Considering we were both coming from a really scolar environement, working as a real team can be really challenging sometimes since french 
-              scholar system isn't really focused on teamwork. Working as a team and progressing as a team felt really nice. 
-          </p>
+
+      <?php
+        $sql = "SELECT * FROM index_content"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
+      ?>
+      <div class="container row center z-depth-2" id="theIndex">
+        
       </div>
     </div>
   </section>

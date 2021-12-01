@@ -1,11 +1,5 @@
 <?php require ('connexion_login.php');
   require ('connexion_register.php');
-
-  if (isset($_SESSION['user'][':firstName'])) {
-    $userName = $_SESSION['user'][':firstName']; //if we use the register
-  } else {
-    $userName = $_SESSION['user']['user_first_name']; //if we use the login 
-  }
   ?>
 
 <!-- NAVBAR ON PC -->
@@ -27,7 +21,7 @@
           <li><a class='dropdown-trigger btn-floating waves-effect waves-light grey darken-4' href='#' data-target='dropdown_admin'><i class="material-icons">account_circle</i></a></li>
         <?php } ?>
 
-        <li><span> <?php echo ($_SESSION['login'] == true) ? "Bonjour ".$userName : 'You are logged out'; ?> </span></li>  
+        <li><span> <?php echo ($_SESSION['login'] == true) ? "Bonjour ".$_SESSION['user']['user_first_name'] : 'You are logged out'; ?> </span></li>  
       </ul>
   </div>
 </nav>

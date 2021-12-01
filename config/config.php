@@ -11,6 +11,5 @@
   if (!isset($_SESSION['login']) && !isset($_SESSION['role']) && !isset($_SESSION['user'])) {
     $_SESSION['login'] = false;
     $_SESSION['role'] = 0;
-    $_SESSION['user'] = null;
   }
 ?>
