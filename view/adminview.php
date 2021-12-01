@@ -94,15 +94,26 @@
         <ul class="collapsible">
           <?php foreach($data as $projectInfos){ ?>
             <li>
-              <div class="collapsible-header"><p class="header"><?php echo "Project n°".$projectInfos['project_id']." / ".$projectInfos['title_1'] ?></p></div>
-              <div class="collapsible-body">
-                <h3><?php echo $projectInfos['title_2']; ?></h3>
-                <p><?php echo $projectInfos['paragraph_1']; ?></p>
+              <div class="collapsible-header">
+                <h3 class="header"><?php echo "Project n°".$projectInfos['project_id']." / ".$projectInfos['title_1'] ?></h3>
+              </div>
+              <div class="collapsible-body white">
                 <form class="right" action="delete_project.php">
                   <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
-                  <button type="submit" name="deleteProject" class="collection-title btn-floating waves-effect waves-light grey lighten-1"><i class="fas fa-edit"></i></button>
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
+                <h4><?php echo $projectInfos['title_2']; ?></h4>
+                <p><?php echo $projectInfos['paragraph_1']; ?></p>
+                <ul class="collapsible">
+                  <li>
+                    <div class="collapsible-header">
+                      <h4>MODIFY CONTENT</h4>
+                    </div>
+                    <div class="collapsible-body white">
+
+                    </div>
+                  </li>
+                </ul>
               </div>
             </li>
           <?php } ?>
