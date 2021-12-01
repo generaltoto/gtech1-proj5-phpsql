@@ -55,6 +55,7 @@
               <th>FIRST NAME</th>
               <th>LAST NAME</th>
               <th>EMAIL</th>
+              <th>EDIT</th>
               <th>SUPPR</th>
             </tr>
           </thead>
@@ -67,6 +68,12 @@
                 <th><?php echo $userNames['user_last_name']; ?></th>
                 <th><?php echo $userNames['user_email']; ?></th>
                 <th>
+                  <form method="post" action="#" class="col s12 m12 l1 red-text">
+                    <input type="hidden" name='edit' value="<?php echo $userNames['user_id'] ?>">
+                    <button type="submit" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></button>
+                  </form>
+                </th>
+                <th>
                   <form method="post" action="config/delete_user.php" class="col s12 m12 l1 red-text">
                     <input type="hidden" name='delete' value="<?php echo $userNames['user_id'] ?>">
                     <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
@@ -76,6 +83,10 @@
             <?php } ?>
           </tbody>
         </table>
+        <div class="section center">
+          <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
+        </div>
+        
       </div>
       
       
@@ -125,8 +136,15 @@
           <?php break; } ?>
         </ul>
         <form class="center" action="edit_project.php">
+<<<<<<< HEAD
           
           <button type="submit" class="btn-large center green">ADD A PROJECT</i></button>
+=======
+          <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
+          <div class="section center">
+            <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
+          </div>
+>>>>>>> 927d2b3ffd926a3ab562911f18143d18c0d6274c
         </form>
         
       </div>
@@ -143,12 +161,21 @@
           <form class="col s12" action="config/edit_index.php" method="POST">
             <div class="row">
               <?php foreach($data as $indexKey => $indexInfos){ ?>
+<<<<<<< HEAD
                 <div class="row">
                   <div class="input-field col s12">
                     <label for="name"><?php echo $indexKey ?></label>
                     <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexInfos ?>"><?php echo $indexInfos; ?></textarea>
                   </div>
                 </div>
+=======
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="name"><?php echo $indexKey ?></label>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey ?>"><?php echo $indexInfos; ?></textarea>
+                      </div>
+                    </div>
+>>>>>>> 927d2b3ffd926a3ab562911f18143d18c0d6274c
               <?php } ?>
             </div>
             <button type="submit" class="btn-large right green">SAVE</button>
