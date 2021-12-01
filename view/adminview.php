@@ -76,6 +76,10 @@
             <?php } ?>
           </tbody>
         </table>
+        <div class="section center">
+          <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
+        </div>
+        
       </div>
       
       
@@ -105,7 +109,9 @@
         </ul>
         <form class="center" action="edit_project.php">
           <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
-          <button type="submit" class="btn-large center green">ADD A PROJECT</i></button>
+          <div class="section center">
+            <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
+          </div>
         </form>
         
       </div>
@@ -125,7 +131,7 @@
                     <div class="row">
                       <div class="input-field col s12">
                         <label for="name"><?php echo $indexKey ?></label>
-                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexInfos ?>"><?php echo $indexInfos; ?></textarea>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey ?>"><?php echo $indexInfos; ?></textarea>
                       </div>
                     </div>
               <?php } ?>
