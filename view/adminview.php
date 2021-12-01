@@ -47,36 +47,47 @@
       ?>
       <div class="row center z-depth-2" id="theUsers">
         <h2 class="header">USERS</h2>
-        <ul class="collapsible">
+        <ul class="collapsible expandable">
           <?php foreach($data as $userInfos){ ?>
             <li>
-              <div class="collapsible-header">
-                <h3 class="header"><?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name']; ?></h3>
-              </div>
-              <div class="collapsible-body white">
+              <div class="collapsible-header"><h3 class="header"><?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name'] ?></h3></div>
+              <div class="collapsible-body">
                 <form class="right" action="delete_project.php">
-                  <input type="hidden" value="<?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name']; ?>">
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <ul>
-                  <li><a>User ID : <?php echo $userInfos['user_id']; ?></a></li>
-                  <li><a>First Name : <?php echo $userInfos['user_first_name']; ?></a></li>
-                  <li><a>Last Name : <?php echo $userInfos['user_last_name']; ?></a></li>
-                  <li><a>Email : <?php echo $userInfos['user_email']; ?></a></li>
+                  <li><p>USER ID : <?php echo $userInfos['user_id']; ?></p></li>
+                  <li><p>FIRST NAME : <?php echo $userInfos['user_first_name']; ?></p></li>
+                  <li><p>LAST NAME : <?php echo $userInfos['user_last_name']; ?></p></li>
+                  <li><p>EMAIL : <?php echo $userInfos['user_email']; ?></p></li>
                 </ul>
-                <ul class="collapsible">
+                <ul class="collapsible expandable">
                   <li>
                     <div class="collapsible-header">
-                      <h4>MODIFY CONTENT</h4>
+                      <p>MODIFY CONTENT</p>
                     </div>
                     <div class="collapsible-body white">
+                      <div class="section center">
+                        <form class="col s12" action="config/edit_user.php?id=<?php echo $userInfos['user_id'] ?>" method="POST">
+                          <div class="row">
+                            <?php 
+                              foreach($userInfos as $userKey => $userInfos){ ?>
+                                <div class="input-field col s12">
+                                  <label for="name"><?php echo $userKey ?></label>
+                                  <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfos; ?></textarea>
+                                </div>
+                            <?php } ?>
+                          </div>
+                          <button type="submit" class="btn-large right green">SAVE</button>
+                        </form>
+                      </div>
                     </div>
                   </li>
                 </ul>
               </div>
             </li>
           <?php } ?>
-        </ul>    
+        </ul>
       </div>
       
       
@@ -105,10 +116,10 @@
                       <p>MODIFY CONTENT</p>
                     </div>
                     <div class="collapsible-body white">
-                      <div>
-                        <form class="col s12" action="config/edit_project.php" method="POST">
+                      <div class="section center">
+                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST">
                           <div class="row">
-                            <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
+                            <?php foreach($projectInfos as $projectKey => $projectInfos){ ?>
                               <div class="input-field col s12">
                                 <label for="name"><?php echo $projectKey ?></label>
                                 <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectKey ?>"><?php echo $projectInfos; ?></textarea>
@@ -125,12 +136,7 @@
             </li>
           <?php } ?>
         </ul>
-        <form class="center" action="edit_project.php">
-          <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
-          <div class="section center">
-            <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
-          </div>
-        </form>
+        <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
       </div>
 
       <?php
@@ -139,7 +145,7 @@
         $pre->execute();
         $data = $pre->fetch(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container row center z-depth-2" id="theIndex">
+      <div class="container row center z-depth-2 white" id="theIndex">
         <h2>Edit Index</h2>
         <ul class="collapsible">
           <form class="col s12" action="config/edit_index.php" method="POST">
