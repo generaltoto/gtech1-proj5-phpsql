@@ -45,48 +45,49 @@
         $pre->execute();
         $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container" id="theUsers">
-        <h2 class="header center">USERS</h2>
-        <table class="center" >
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>ROLE</th>
-              <th>FIRST NAME</th>
-              <th>LAST NAME</th>
-              <th>EMAIL</th>
-              <th>EDIT</th>
-              <th>SUPPR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach($data as $userNames){ ?>
-              <tr>
-                <th><?php echo $userNames['user_id']; ?></th>
-                <th><?php echo ($userNames['user_role'] == 2) ? 'ADMIN' : ''; ?></th>
-                <th><?php echo $userNames['user_first_name']; ?></th>
-                <th><?php echo $userNames['user_last_name']; ?></th>
-                <th><?php echo $userNames['user_email']; ?></th>
-                <th>
-                  <form method="post" action="#" class="col s12 m12 l1 red-text">
-                    <input type="hidden" name='edit' value="<?php echo $userNames['user_id'] ?>">
-                    <button type="submit" class="btn-floating waves-effect waves-light blue"><i class="material-icons">edit</i></button>
-                  </form>
-                </th>
-                <th>
-                  <form method="post" action="config/delete_user.php" class="col s12 m12 l1 red-text">
-                    <input type="hidden" name='delete' value="<?php echo $userNames['user_id'] ?>">
-                    <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
-                  </form>
-                </th>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-        <div class="section center">
-          <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
-        </div>
-        
+      <div class="row center z-depth-2" id="theUsers">
+        <h2 class="header">USERS</h2>
+        <ul class="collapsible expandable">
+          <?php foreach($data as $userInfos){ ?>
+            <li>
+              <div class="collapsible-header"><h3 class="header"><?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name'] ?></h3></div>
+              <div class="collapsible-body">
+                <form class="right" action="delete_project.php">
+                  <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                <ul>
+                  <li><p>USER ID : <?php echo $userInfos['user_id']; ?></p></li>
+                  <li><p>FIRST NAME : <?php echo $userInfos['user_first_name']; ?></p></li>
+                  <li><p>LAST NAME : <?php echo $userInfos['user_last_name']; ?></p></li>
+                  <li><p>EMAIL : <?php echo $userInfos['user_email']; ?></p></li>
+                </ul>
+                <ul class="collapsible expandable">
+                  <li>
+                    <div class="collapsible-header">
+                      <p>MODIFY CONTENT</p>
+                    </div>
+                    <div class="collapsible-body white">
+                      <div class="section center">
+                        <form class="col s12" action="config/edit_user.php?id=<?php echo $userInfos['user_id'] ?>" method="POST">
+                          <div class="row">
+                            <?php 
+                              foreach($userInfos as $userKey => $userInfos){ ?>
+                                <div class="input-field col s12">
+                                  <label for="name"><?php echo $userKey ?></label>
+                                  <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfos; ?></textarea>
+                                </div>
+                            <?php } ?>
+                          </div>
+                          <button type="submit" class="btn-large right green">SAVE</button>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <?php } ?>
+        </ul>
       </div>
       
       
@@ -116,10 +117,9 @@
                     </div>
                     <div class="collapsible-body white">
                       <div class="section center">
-                        <form class="col s12" action="config/edit_project?currentId=projectInfos['project_id'].php" method="post">
+                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST">
                           <div class="row">
-                            <input type="hidden" name="update" value="<?php echo $projectInfos['project_id']; ?>">
-                            <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
+                            <?php foreach($projectInfos as $projectKey => $projectInfos){ ?>
                               <div class="input-field col s12">
                                 <label for="name"><?php echo $projectKey ?></label>
                                 <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectKey ?>"><?php echo $projectInfos; ?></textarea>
@@ -145,7 +145,7 @@
         $pre->execute();
         $data = $pre->fetch(PDO::FETCH_ASSOC); 
       ?>
-      <div class="container row center z-depth-2" id="theIndex">
+      <div class="container row center z-depth-2 white" id="theIndex">
         <h2>Edit Index</h2>
         <ul class="collapsible">
           <form class="col s12" action="config/edit_index.php" method="POST">

@@ -1,14 +1,15 @@
 <?php 
   require('config.php');
-    $sql = "SELECT * FROM index_content"; 
+    $sql = "SELECT * FROM user"; 
     $pre = $pdo->prepare($sql); 
     $pre->execute();
-    $data = $pre->fetch(PDO::FETCH_ASSOC); 
+    $data = $pre->fetch(PDO::FETCH_ASSOC);
 
     foreach($_POST as $key => $value){
-        $sql = "UPDATE index_content SET $key = :value";
+        $sql = "UPDATE user SET $key = :value WHERE user_id = :id";
         $dataBinded = array(
-            ':value'=> $value
+            ':value'=> $value,
+            ':id'=> $_GET['id']
         );
         $pre = $pdo->prepare($sql);
         $pre->execute($dataBinded);
