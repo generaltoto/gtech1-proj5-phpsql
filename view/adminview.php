@@ -103,12 +103,11 @@
             </li>
           <?php } ?>
         </ul>
-        <form class="right" action="edit_project.php">
+        <form class="center" action="edit_project.php">
           <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
-          <button type="submit" name="deleteProject" class="collection-title btn-floating waves-effect waves-light grey lighten-1"><i class="fas fa-edit"></i></button>
-          <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
+          <button type="submit" class="btn-large center green">ADD A PROJECT</i></button>
         </form>
-        <button class="btn-large center green">ADD A PROJECT</i></button>
+        
       </div>
 
       <?php
