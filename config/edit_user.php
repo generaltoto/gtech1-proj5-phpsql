@@ -8,7 +8,8 @@
     foreach($_POST as $key => $value){
         $sql = "UPDATE user SET $key = :value WHERE user_id = :id";
         $dataBinded = array(
-            ':value'=> $value
+            ':value'=> $value,
+            ':id'=> $_GET['id']
         );
         $pre = $pdo->prepare($sql);
         $pre->execute($dataBinded);

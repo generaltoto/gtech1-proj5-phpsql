@@ -15,5 +15,5 @@
       $pre->execute($dataBinded);
   };
   
-  //header('Location:../admin.php');
+  header('Location:../admin.php');
 ?>
