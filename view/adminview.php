@@ -33,7 +33,7 @@
               <a href="#theUsers" class="indigo-text text-darken-4">USERS</a>
           </li>
           <li class="tab col s12">
-              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGELENT</a>
+              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGEMENT</a>
           </li>
           <li class="tab col s12">
               <a href="#theIndex" class="indigo-text text-darken-4">INDEX MANAGEMENT</a>
