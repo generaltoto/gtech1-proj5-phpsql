@@ -1,7 +1,7 @@
 <?php
-require('config/config.php');
+  require('config.php');
 
-$sql = "DELETE FROM projects WHERE project_id = :delProject";
+  $sql = "DELETE FROM project WHERE project_id = :delProject";
 
   $dataBinded=array(
     ':delProject' => $_POST['deleteProject']
@@ -10,5 +10,5 @@ $sql = "DELETE FROM projects WHERE project_id = :delProject";
   $pre = $pdo->prepare($sql);
   $pre->execute($dataBinded);
 
-header('Location:../admin.php');
+  header('Location:../admin.php');
 ?>

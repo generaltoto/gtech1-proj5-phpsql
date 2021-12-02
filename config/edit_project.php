@@ -16,4 +16,12 @@
   };
   
   header('Location:../admin.php');
+
+// SELECT * INTO TemporaryTable FROM project
+
+// ALTER TABLE TemporaryTable DROP COLUMN Columnwhichyouwanttoremove
+
+// SELECT * FROM TemporaryTable 
+
+// DROP TABLE TemporaryTable 
 ?>

@@ -106,8 +106,8 @@
             <li>
               <div class="collapsible-header"><h3 class="header"><?php echo "Project n°".$projectInfos['project_id']." / ".$projectInfos['title_1'] ?></h3></div>
               <div class="collapsible-body">
-                <form class="right" action="delete_project.php">
-                  <input type="hidden" value="<?php echo $projectInfos['project_id']; ?>">
+                <form class="right" method="post" action="config/delete_project.php">
+                  <input type="hidden" name="deleteProject" value="<?php echo $projectInfos['project_id']; ?>">
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <h4><?php echo $projectInfos['title_2']; ?></h4>
