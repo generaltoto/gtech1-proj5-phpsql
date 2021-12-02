@@ -20,6 +20,7 @@
   <!-- HEADER & NAVBAR -->
   <header class="admin-header">
     <?php require ('assets/parts/nav.php'); ?>
+    <?php require ('config/imageDetection.php'); ?>
     <div class="container">
       <h1 class="header center white-text">Welcome To Your Admin Panel</h1>
     </div>
@@ -59,6 +60,7 @@
                   <li><p>USER ID : <?php echo $userInfos['user_id']; ?></p></li>
                   <li><p>FIRST NAME : <?php echo $userInfos['user_first_name']; ?></p></li>
                   <li><p>LAST NAME : <?php echo $userInfos['user_last_name']; ?></p></li>
+                  <li><p>USER ROLE : <?php echo ($userInfos['user_role']) ? 'Admin' : ''; ?></p></li>
                   <li><p>EMAIL : <?php echo $userInfos['user_email']; ?></p></li>
                 </ul>
                 <ul class="collapsible expandable">
@@ -148,18 +150,35 @@
       <div class="container row center z-depth-2 white" id="theIndex">
         <h2>Edit Index</h2>
         <ul class="collapsible">
-          <form class="col s12" action="config/edit_index.php" method="POST">
+          <form class="col s12" action="config/edit_index.php" method="POST" enctype="multipart/form-data">
             <div class="row">
-              <?php foreach($data as $indexKey => $indexInfos){ ?>
+              <?php foreach($data as $indexKey => $indexInfos){
+                if(isImage($indexInfos) == true){ ?>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <div class="btn">
+                        <label for="file">Choose file to upload</label>
+                        <span>File</span>
+                        <input type="file" id="file" name="<?php echo $indexKey; ?>" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder=<?php echo $indexKey; ?> name="<?php echo $indexKey; ?>">
+                      </div>
+                    </div>
+                  </div>
+              <?php } else { ?>
                     <div class="row">
                       <div class="input-field col s12">
                         <label for="name"><?php echo $indexKey ?></label>
-                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey ?>"><?php echo $indexInfos; ?></textarea>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey; ?>"><?php echo $indexInfos; ?></textarea>
                       </div>
                     </div>
-              <?php } ?>
+              <?php } 
+              } ?>
             </div>
-            <button type="submit" class="btn-large right green">SAVE</button>
+            <div>
+              <input type="submit" class="btn-large right green" value="Save">
+            </div>
           </form>
         </ul>
       </div>
