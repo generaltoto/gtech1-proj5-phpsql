@@ -26,6 +26,7 @@
     </div>
   </header>
 
+  <!-- TAB MENU -->
   <section>
     <div class="indigo-text text-darken-3 container">
       <ul class="tabs transparent center" id="tabAdmin">
@@ -40,6 +41,7 @@
           </li>
       </ul>
 
+      <!-- User Tab -->
       <?php
         $sql = "SELECT * FROM user"; 
         $pre = $pdo->prepare($sql); 
@@ -72,12 +74,11 @@
                       <div class="section center">
                         <form class="col s12" action="config/edit_user.php?id=<?php echo $userInfos['user_id'] ?>" method="POST">
                           <div class="row">
-                            <?php 
-                              foreach($userInfos as $userKey => $userInfos){ ?>
-                                <div class="input-field col s12">
-                                  <label for="name"><?php echo $userKey ?></label>
-                                  <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfos; ?></textarea>
-                                </div>
+                            <?php foreach($data as $userKey => $userInfos){ ?>
+                              <div class="input-field col s12">
+                                <label for="name"><?php echo $userKey ?></label>
+                                <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfos; ?></textarea>
+                              </div>
                             <?php } ?>
                           </div>
                           <button type="submit" class="btn-large right green">SAVE</button>
@@ -92,7 +93,7 @@
         </ul>
       </div>
       
-      
+      <!-- Project Tab -->
       <?php
         $sql = "SELECT * FROM project"; 
         $pre = $pdo->prepare($sql); 
@@ -138,9 +139,39 @@
             </li>
           <?php } ?>
         </ul>
-        <button type="submit" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></button>
+        <button type="submit" class="modal-trigger btn-floating btn-large waves-effect waves-light green" data-target="modal-add-project"><i class="material-icons">add</i></button>
       </div>
+      
+      <?php
+        $sql = "SELECT * FROM project"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
+      ?>
+      <!-- Modal Project Add -->
+      <div id="modal-add-project" class="modal">
+        <div class="modal-content">
+          <section class="section container">
+            <h2>Create Your Own Project !</h2>
+            <form class="col s12" action="config/add_project.php" method="post">
+              <div class="row">
+                <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
+                  <div class="input-field col s12">
+                    <label for="name"><?php echo $projectKey ?></label>
+                    <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectInfos ?>"></textarea>
+                  </div>
+                <?php } ?>
+              </div>
+              <button type="submit" class="btn-large right green">SAVE</button>
+            </form>
+          </section>
+        </div>
+        <div class="modal-footer">
 
+        </div>
+      </div>
+      
+      <!-- Index Tab -->
       <?php
         $sql = "SELECT * FROM index_content"; 
         $pre = $pdo->prepare($sql); 
