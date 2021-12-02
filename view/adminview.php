@@ -120,14 +120,30 @@
                     </div>
                     <div class="collapsible-body white">
                       <div class="section center">
-                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST">
+                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST" enctype="multipart/form-data">
                           <div class="row">
-                            <?php foreach($projectInfos as $projectKey => $projectInfos){ ?>
-                              <div class="input-field col s12">
-                                <label for="name"><?php echo $projectKey ?></label>
-                                <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectKey ?>"><?php echo $projectInfos; ?></textarea>
+                          <?php foreach($projectInfos as $projectKey => $projectInfos){
+                            if(isImage($projectInfos) == true){ ?>
+                              <div class="row">
+                                <div class="file-field input-field">
+                                  <div class="btn">
+                                      <span>File</span>
+                                      <input type="file" name=<?php echo $projectKey ?>>
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                      <input class="file-path validate" type="text" name=<?php echo $projectKey ?> placeholder=<?php echo "'$projectKey'" ?>>
+                                  </div>
+                                </div>
                               </div>
-                            <?php } ?>
+                          <?php } else { ?>
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <label for="name"><?php echo $projectKey ?></label>
+                                    <textarea id="textarea1" class="materialize-textarea" name="<?php echo $projectKey; ?>"><?php echo $projectInfos; ?></textarea>
+                                  </div>
+                                </div>
+                          <?php } 
+                          } ?>
                           </div>
                           <button type="submit" class="btn-large right green">SAVE</button>
                         </form>
@@ -153,16 +169,34 @@
         <div class="modal-content">
           <section class="section container">
             <h2>Create Your Own Project !</h2>
-            <form class="col s12" action="config/add_project.php" method="post">
-              <div class="row">
-                <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
-                  <div class="input-field col s12">
-                    <label for="name"><?php echo $projectKey ?></label>
-                    <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectInfos ?>"></textarea>
+            <form class="col s12" action="config/add_project.php" method="POST" enctype="multipart/form-data">
+            <div class="row">
+            <?php foreach($data as $projectInfos){ ?>
+              <?php foreach($projectInfos as $projectKey => $projectInfos){
+                if(isImage($projectInfos) == true){ ?>
+                  <div class="row">
+                    <div class="file-field input-field">
+                      <div class="btn">
+                          <span>File</span>
+                          <input type="file" name=<?php echo $projectKey ?>>
+                      </div>
+                      <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" name=<?php echo $projectKey ?> placeholder=<?php echo "'$projectKey'" ?>>
+                      </div>
+                    </div>
                   </div>
-                <?php } ?>
-              </div>
-              <button type="submit" class="btn-large right green">SAVE</button>
+              <?php } else { ?>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="name"><?php echo $projectKey ?></label>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $projectKey; ?>"></textarea>
+                      </div>
+                    </div>
+              <?php } 
+              } 
+            }?>
+            </div>
+            <button type="submit" class="btn-large right green">SAVE</button>
             </form>
           </section>
         </div>
