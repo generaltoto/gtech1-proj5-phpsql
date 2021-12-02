@@ -24,7 +24,7 @@
       $data = $pre->fetch(PDO::FETCH_ASSOC);
     ?>
 
-    <header class="index-header">
+    <header class="index-header" style="background: url(<?php echo $data['title_img']; ?>);">
       <!-- NAVBAR -->
       <?php require ('assets/parts/nav.php');?>
 

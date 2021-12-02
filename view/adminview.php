@@ -20,6 +20,7 @@
   <!-- HEADER & NAVBAR -->
   <header class="admin-header">
     <?php require ('assets/parts/nav.php'); ?>
+    <?php require ('config/imageDetection.php'); ?>
     <div class="container">
       <h1 class="header center white-text">Welcome To Your Admin Panel</h1>
     </div>
@@ -180,18 +181,34 @@
       <div class="container row center z-depth-2 white" id="theIndex">
         <h2>Edit Index</h2>
         <ul class="collapsible">
-          <form class="col s12" action="config/edit_index.php" method="POST">
+          <form class="col s12" action="config/edit_index.php" method="POST" enctype="multipart/form-data">
             <div class="row">
-              <?php foreach($data as $indexKey => $indexInfos){ ?>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <label for="name"><?php echo $indexKey ?></label>
-                    <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexInfos ?>"><?php echo $indexInfos; ?></textarea>
+              <?php foreach($data as $indexKey => $indexInfos){
+                if(isImage($indexInfos) == true){ ?>
+                  <div class="row">
+                    <div class="file-field input-field">
+                      <div class="btn">
+                          <span>File</span>
+                          <input type="file" name=<?php echo $indexKey ?>>
+                      </div>
+                      <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" name=<?php echo $indexKey ?> placeholder=<?php echo "'$indexKey'" ?>>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              <?php } ?>
+              <?php } else { ?>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="name"><?php echo $indexKey ?></label>
+                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey; ?>"><?php echo $indexInfos; ?></textarea>
+                      </div>
+                    </div>
+              <?php } 
+              } ?>
             </div>
-            <button type="submit" class="btn-large right green">SAVE</button>
+            <div>
+              <input type="submit" class="btn-large right green" value="Save">
+            </div>
           </form>
         </ul>
       </div>
