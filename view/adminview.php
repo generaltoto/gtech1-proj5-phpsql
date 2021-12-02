@@ -155,14 +155,13 @@
               <?php foreach($data as $indexKey => $indexInfos){
                 if(isImage($indexInfos) == true){ ?>
                   <div class="row">
-                    <div class="input-field col s12">
+                    <div class="file-field input-field">
                       <div class="btn">
-                        <label for="file">Choose file to upload</label>
-                        <span>File</span>
-                        <input type="file" id="file" name="<?php echo $indexKey; ?>" multiple>
+                          <span>File</span>
+                          <input type="file" name=<?php echo $indexKey ?>>
                       </div>
                       <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder=<?php echo $indexKey; ?> name="<?php echo $indexKey; ?>">
+                          <input class="file-path validate" type="text" name=<?php echo $indexKey ?> placeholder=<?php echo "'$indexKey'" ?>>
                       </div>
                     </div>
                   </div>

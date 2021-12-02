@@ -15,7 +15,6 @@ h3 {
 
 /* NAV & NAV BACKGROUND FOR EACH PAGE */
 .index-header {
-    background: url("../img/indexhead.jpg");
     background-size: cover;
     background-position:center;
     min-height: 70vh;
