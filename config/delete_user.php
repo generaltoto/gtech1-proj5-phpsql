@@ -4,7 +4,7 @@
   $sql = "DELETE FROM user WHERE user_id = :delUser";
 
   $dataBinded=array(
-    ':delUser' => $_POST['delete']
+    ':delUser' => $_POST['delUser']
   );
 
   $pre = $pdo->prepare($sql);

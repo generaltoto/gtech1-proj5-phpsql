@@ -1,5 +1,5 @@
 <!-- Login Form -->
-<div id="modal-login" class="modal">
+<div id="modal-login" class="modal" >
   <div class="modal-content">
     <section class="section container contact">
       <h2 class="header center">~ Login ~</h2>

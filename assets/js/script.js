@@ -62,3 +62,13 @@ function swap() {
   x = (x === images.length - 1) ? 0 : x + 1;
   document.getElementById("swap").src = images[x];
 }
+
+const error = urlParams.get('error');
+const text_err = urlParams.get('text');
+if(error){
+  if(error == "login"){
+    $("#modal-login").modal('open');
+  } else if (error == "register"){
+    $("#modal-register").modal('open');
+  }
+}

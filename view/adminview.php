@@ -56,7 +56,7 @@
               <div class="collapsible-header"><h3 class="header"><?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name'] ?></h3></div>
               <div class="collapsible-body">
                 <form class="right" method="post" action="config/delete_user.php">
-                  <input type="hidden" name="deleteUser" value="<?php echo $userInfos['user_id']; ?>">
+                  <input type="hidden" name="delUser" value="<?php echo $userInfos['user_id']; ?>">
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <ul>
