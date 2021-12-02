@@ -37,7 +37,7 @@
       $pre->execute($dataBinded);
   };
   
-  //header('Location:../admin.php');
+  header('Location:../admin.php');
 
 // SELECT * INTO TemporaryTable FROM project
 

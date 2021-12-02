@@ -1,4 +1,5 @@
-<?php require ('connexion_login.php');
+<?php
+  require ('connexion_login.php');
   require ('connexion_register.php');
   require ('assets/parts/projects-modal.php');
 
