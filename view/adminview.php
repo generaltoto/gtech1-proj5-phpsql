@@ -158,7 +158,7 @@
                 <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
                   <div class="input-field col s12">
                     <label for="name"><?php echo $projectKey ?></label>
-                    <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectInfos ?>"></textarea>
+                    <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectInfos ?>"><?php echo $projectInfos ?></textarea>
                   </div>
                 <?php } ?>
               </div>
