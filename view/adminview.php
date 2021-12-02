@@ -34,7 +34,7 @@
               <a href="#theUsers" class="indigo-text text-darken-4">USERS</a>
           </li>
           <li class="tab col s12">
-              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGELENT</a>
+              <a href="#theProjects" class="indigo-text text-darken-4">PROJECTS MANAGEMENT</a>
           </li>
           <li class="tab col s12">
               <a href="#theIndex" class="indigo-text text-darken-4">INDEX MANAGEMENT</a>
@@ -55,7 +55,8 @@
             <li>
               <div class="collapsible-header"><h3 class="header"><?php echo $userInfos['user_first_name']." ".$userInfos['user_last_name'] ?></h3></div>
               <div class="collapsible-body">
-                <form class="right" action="delete_project.php">
+                <form class="right" method="post" action="config/delete_user.php">
+                  <input type="hidden" name="deleteUser" value="<?php echo $userInfos['user_id']; ?>">
                   <button type="submit" class="btn-floating waves-effect waves-light red"><i class="fas fa-trash-alt"></i></button>
                 </form>
                 <ul>
@@ -74,10 +75,10 @@
                       <div class="section center">
                         <form class="col s12" action="config/edit_user.php?id=<?php echo $userInfos['user_id'] ?>" method="POST">
                           <div class="row">
-                            <?php foreach($data as $userKey => $userInfos){ ?>
+                            <?php foreach($userInfos as $userKey => $userInfo){ ?>
                               <div class="input-field col s12">
                                 <label for="name"><?php echo $userKey ?></label>
-                                <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfos; ?></textarea>
+                                <textarea id="textarea3" class="materialize-textarea" name="<?php echo $userKey ?>"><?php echo $userInfo; ?></textarea>
                               </div>
                             <?php } ?>
                           </div>
@@ -120,14 +121,30 @@
                     </div>
                     <div class="collapsible-body white">
                       <div class="section center">
-                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST">
+                        <form class="col s12" action="config/edit_project.php?id=<?php echo $projectInfos['project_id'] ?>" method="POST" enctype="multipart/form-data">
                           <div class="row">
-                            <?php foreach($projectInfos as $projectKey => $projectInfos){ ?>
-                              <div class="input-field col s12">
-                                <label for="name"><?php echo $projectKey ?></label>
-                                <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectKey ?>"><?php echo $projectInfos; ?></textarea>
+                          <?php foreach($projectInfos as $projectKey => $projectInfos){
+                            if(isImage($projectInfos) == true){ ?>
+                              <div class="row">
+                                <div class="file-field input-field">
+                                  <div class="btn">
+                                      <span>File</span>
+                                      <input type="file" name=<?php echo $projectKey ?>>
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                      <input class="file-path validate" type="text" name=<?php echo $projectKey ?> placeholder=<?php echo "'$projectKey'" ?>>
+                                  </div>
+                                </div>
                               </div>
-                            <?php } ?>
+                          <?php } else { ?>
+                                <div class="row">
+                                  <div class="input-field col s12">
+                                    <label for="name"><?php echo $projectKey ?></label>
+                                    <textarea id="textarea1" class="materialize-textarea" name="<?php echo $projectKey; ?>"><?php echo $projectInfos; ?></textarea>
+                                  </div>
+                                </div>
+                          <?php } 
+                          } ?>
                           </div>
                           <button type="submit" class="btn-large right green">SAVE</button>
                         </form>
@@ -139,37 +156,12 @@
             </li>
           <?php } ?>
         </ul>
-        <button type="submit" class="modal-trigger btn-floating btn-large waves-effect waves-light green" data-target="modal-add-project"><i class="material-icons">add</i></button>
+        <div class="row">
+          <button type="submit" class="modal-trigger btn-floating btn-large waves-effect waves-light green" data-target="modal-add-project"><i class="material-icons">add</i></button>
+        </div>
       </div>
       
-      <?php
-        $sql = "SELECT * FROM project"; 
-        $pre = $pdo->prepare($sql); 
-        $pre->execute();
-        $data = $pre->fetchAll(PDO::FETCH_ASSOC); 
-      ?>
-      <!-- Modal Project Add -->
-      <div id="modal-add-project" class="modal">
-        <div class="modal-content">
-          <section class="section container">
-            <h2>Create Your Own Project !</h2>
-            <form class="col s12" action="config/add_project.php" method="post">
-              <div class="row">
-                <?php foreach($data[0] as $projectKey => $projectInfos){ ?>
-                  <div class="input-field col s12">
-                    <label for="name"><?php echo $projectKey ?></label>
-                    <textarea id="textarea" class="materialize-textarea" name="<?php echo $projectInfos ?>"><?php echo $projectInfos ?></textarea>
-                  </div>
-                <?php } ?>
-              </div>
-              <button type="submit" class="btn-large right green">SAVE</button>
-            </form>
-          </section>
-        </div>
-        <div class="modal-footer">
-
-        </div>
-      </div>
+      <?php require('assets/parts/project-add.php'); ?>
       
       <!-- Index Tab -->
       <?php
@@ -179,38 +171,40 @@
         $data = $pre->fetch(PDO::FETCH_ASSOC); 
       ?>
       <div class="container row center z-depth-2 white" id="theIndex">
-        <h2>Edit Index</h2>
-        <ul class="collapsible">
-          <form class="col s12" action="config/edit_index.php" method="POST" enctype="multipart/form-data">
-            <div class="row">
-              <?php foreach($data as $indexKey => $indexInfos){
-                if(isImage($indexInfos) == true){ ?>
-                  <div class="row">
-                    <div class="file-field input-field">
-                      <div class="btn">
-                          <span>File</span>
-                          <input type="file" name=<?php echo $indexKey ?>>
-                      </div>
-                      <div class="file-path-wrapper">
-                          <input class="file-path validate" type="text" name=<?php echo $indexKey ?> placeholder=<?php echo "'$indexKey'" ?>>
-                      </div>
-                    </div>
-                  </div>
-              <?php } else { ?>
+        <div class="container">
+          <h2>Edit Index</h2>
+          <ul class="collapsible">
+            <form class="col s12" action="config/edit_index.php" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                <?php foreach($data as $indexKey => $indexInfos){
+                  if(isImage($indexInfos) == true){ ?>
                     <div class="row">
-                      <div class="input-field col s12">
-                        <label for="name"><?php echo $indexKey ?></label>
-                        <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey; ?>"><?php echo $indexInfos; ?></textarea>
+                      <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name=<?php echo $indexKey ?>>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" name=<?php echo $indexKey ?> placeholder=<?php echo "'$indexKey'" ?>>
+                        </div>
                       </div>
                     </div>
-              <?php } 
-              } ?>
-            </div>
-            <div>
-              <input type="submit" class="btn-large right green" value="Save">
-            </div>
-          </form>
-        </ul>
+                <?php } else { ?>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <label for="name"><?php echo $indexKey ?></label>
+                          <textarea id="textarea1" class="materialize-textarea" name="<?php echo $indexKey; ?>"><?php echo $indexInfos; ?></textarea>
+                        </div>
+                      </div>
+                <?php } 
+                } ?>
+              </div>
+              <div class="row">
+                <input type="submit" class="btn-large right green" value="Save">
+              </div>
+            </form>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

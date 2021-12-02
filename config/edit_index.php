@@ -1,7 +1,7 @@
 <?php 
     require ('imageDetection.php');
-
     require('config.php');
+
     $sql = "SELECT * FROM index_content"; 
     $pre = $pdo->prepare($sql);
     $pre->execute();
@@ -34,7 +34,5 @@
         $pre->execute($dataBinded);
     };
 
-
-    
-    //header('Location:../admin.php');
+    header('Location:../admin.php');
 ?>

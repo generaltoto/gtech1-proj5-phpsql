@@ -27,7 +27,7 @@
     $sql = substr($sql,0,-1); // <--- remove last ,
     $stmt = $pdo->prepare("INSERT INTO project SET " . $sql);
     $stmt->execute($param);
-    print_r($stmt);
+    header('Location:../admin.php');
   }
 
 

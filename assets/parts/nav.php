@@ -1,5 +1,7 @@
-<?php require ('connexion_login.php');
+<?php
+  require ('connexion_login.php');
   require ('connexion_register.php');
+  require ('assets/parts/projects-modal.php');
 
   // to print bonjour depending on if you registered or logged in
   if (isset($_SESSION['user'][':firstName'])){
